@@ -2,7 +2,7 @@ import sys
 import json
 import os
 
-fichier = "drinks.json"
+fichier = "atelier 2/drinks.json"
 
 if os.path.exists(fichier):
     print("Fichier valide.")
@@ -10,7 +10,7 @@ else:
     print("Ce fichier est introuvable ou n'existe pas.")
     exit()
 
-with open("drinks.json", "r", encoding="utf-8") as small_fichier:
+with open(fichier, "r", encoding="utf-8") as small_fichier:
     donnees_small = json.load(small_fichier)
 
 from PySide6.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
@@ -28,5 +28,7 @@ tableau.setHorizontalHeaderLabels(tableau_choisi[0].keys())
 for ligne, i in enumerate(tableau_choisi):            
     for colonne, k in enumerate(i):                    
         tableau.setItem(ligne, colonne, QTableWidgetItem(str(i[k])))
+
+tableau.show()
 
 sys.exit(app.exec())
